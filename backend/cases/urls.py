@@ -1,0 +1,129 @@
+from django.urls import path
+
+from .views import (
+    BGVCaseListCreateView,
+    BGVCaseDetailView,
+    BGVCaseAssignView,
+    MyAssignedBGVCasesView,
+    BGVCaseProcessView,
+    CreateCaseVerificationsView,
+    CaseVerificationSummaryView,
+    CaseStatusSyncView,
+    CaseReportReadinessView,
+    CaseFinalReportView,
+    CaseReportDetailView,
+    CaseReportExportView,
+    CaseReportPDFView,ClientCaseReportPDFView,
+    CandidateCaseReportPDFView,
+    BGVCaseDashboardView,
+    CaseVerificationTimelineView,
+    ClientBGVCaseDashboardView,
+    VerifierBGVCaseDashboardView,
+    CandidateBGVCaseDashboardView,
+    CaseClosureReadinessView,
+    CaseCloseView,
+)
+
+
+urlpatterns = [
+    path(
+        '',
+        BGVCaseListCreateView.as_view(),
+        name='case_list_create'
+    ),
+    path(
+        '<int:pk>/',
+        BGVCaseDetailView.as_view(),
+        name='case_detail'
+    ),
+    path(
+        '<int:pk>/assign/',BGVCaseAssignView.as_view(), name='case_assign'
+    ),
+    path(
+        'my/',MyAssignedBGVCasesView.as_view(), name='my_assigned_cases'
+    ),
+    path(
+        '<int:pk>/process/',BGVCaseProcessView.as_view(), name='case_process'
+    ),
+    path(
+        '<int:pk>/create-verifications/', CreateCaseVerificationsView.as_view(), name='create_case_verifications'
+    ),
+    path(
+        '<int:pk>/verification-summary/', CaseVerificationSummaryView.as_view(), name='case_verification_summary'
+    ),
+    path(
+    '<int:pk>/sync-status/',
+    CaseStatusSyncView.as_view(),
+    name='case_sync_status'
+    ),
+    path(
+    '<int:pk>/report-readiness/',
+    CaseReportReadinessView.as_view(),
+    name='case_report_readiness'
+    ),
+    path(
+    '<int:pk>/generate-report/',
+    CaseFinalReportView.as_view(),
+    name='case_generate_report'
+    ),
+    path(
+    '<int:pk>/report/',
+    CaseReportDetailView.as_view(),
+    name='case_report_detail'
+    ),
+    path(
+    '<int:pk>/report/export/',
+    CaseReportExportView.as_view(),
+    name='case_report_export'
+    ),
+    path(
+    '<int:pk>/report/pdf/',
+    CaseReportPDFView.as_view(),
+    name='case_report_pdf'
+    ),
+    path(
+    '<int:pk>/client/report/pdf/',
+    ClientCaseReportPDFView.as_view(),
+    name='client_case_report_pdf'
+    ),
+    path(
+    '<int:pk>/candidate/report/pdf/',
+    CandidateCaseReportPDFView.as_view(),
+    name='candidate_case_report_pdf'
+    ),
+    path(
+    '<int:pk>/dashboard/',
+    BGVCaseDashboardView.as_view(),
+    name='case_dashboard'
+    ),
+    path(
+    '<int:pk>/verification-timeline/',
+    CaseVerificationTimelineView.as_view(),
+    name='case_verification_timeline'
+    ),
+    path(
+    '<int:pk>/client/dashboard/',
+    ClientBGVCaseDashboardView.as_view(),
+    name='client_case_dashboard'
+    ),
+    path(
+    '<int:pk>/verifier/dashboard/',
+    VerifierBGVCaseDashboardView.as_view(),
+    name='verifier_case_dashboard'
+    ),
+    path(
+    '<int:pk>/candidate/dashboard/',
+    CandidateBGVCaseDashboardView.as_view(),
+    name='candidate_case_dashboard'
+    ),
+    path(
+    '<int:pk>/closure-readiness/',
+    CaseClosureReadinessView.as_view(),
+    name='case_closure_readiness'
+    ),
+    path(
+    '<int:pk>/close/',
+    CaseCloseView.as_view(),
+    name='case_close'
+    ),
+]

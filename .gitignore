@@ -1,0 +1,33 @@
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+venv/
+.venv/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Django and databases
+*.log
+db.sqlite3
+**/db.sqlite3
+staticfiles/
+media/
+**/media/
+
+# Frontend dependencies and build output
+node_modules/
+dist/
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+backend/documents/*Resume*.pdf
